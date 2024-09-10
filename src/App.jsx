@@ -5,17 +5,21 @@ export const App = () => {
   const [threads, SetThreads] = useState([]);
   
   useEffect(() => {
-    fetch('https://railway.bulletinboard.techtrain.dev/thread')
+    fetch('https://railway.bulletinboard.techtrain.dev/threads')
       .then(res => res.json())
-      .then(data => SetThreads(data.message)) 
+      .then(data => {
+        SetThreads(data);
+        console.log(data);
+      })
   },[])
   return(
   <div>
-    <header>新着スレッド</header>
+    <header>掲示板</header>
     <ul>
-        {threads.map((thread, index) => (
-          <li key={index}> {threads} </li>
-        ))}
+      新着スレッド
+      {threads.map((thread) => (
+        <li key={thread.id}>{thread.title}</li>
+      ))}
     </ul>
   </div>
   );
