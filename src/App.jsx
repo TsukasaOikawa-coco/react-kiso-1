@@ -7,7 +7,8 @@ export const App = () => {
   useEffect(() => {
     fetch('https://railway.bulletinboard.techtrain.dev/threads')
       .then(res => res.json())
-      .then(data => SetThreads(data))
+      .then(data => 
+        SetThreads(data))
   },[])
   return(
   <div>
