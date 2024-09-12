@@ -1,42 +1,23 @@
-import { useState,useEffect } from 'react';
 import './App.css';
-import { Routes, Route, Link} from 'react-router-dom'
+import { useState,useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Home } from "./component/Home";
+import { CreateThreads } from "./component/CreateThreads";
 
-export const App = () => {
+const App = () => {
   return(
     <div>
-      <nav>
-        <Link to="/">ホーム</Link>
-        <Link to="/threads/new">新着スレッド作成</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/threads/new" element={<NewThreads />} />
-      </Routes>
+      <Router>
+        <nav>
+          <Link to="/threads/new">新着スレッド作成</Link>
+        </nav>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/threads/new' element={<CreateThreads />} />
+        </Routes>        
+      </Router>
     </div>
   );
-}
-const Home = () => {
-  
-  const [threads, SetThreads] = useState([]);
-
-  useEffect(() => {
-    fetch('https://railway.bulletinboard.techtrain.dev/threads')
-      .then(res => res.json())
-      .then(data => 
-        SetThreads(data))
-  },[])
-
-  return(
-  <div>
-    <header>掲示板</header> 
-    <Link className="btn">スレッドをたてる</Link>
-    <ul>
-      新着スレッド
-      {threads.map((thread) => (
-        <li key={thread.id}>{thread.title}</li>
-      ))}
-    </ul>
-  </div>
-  );
 };
+
+export default App;
