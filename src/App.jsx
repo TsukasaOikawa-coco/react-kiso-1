@@ -5,6 +5,12 @@ import { Home } from "./component/Home";
 import { CreateThreads } from "./component/CreateThreads";
 
 const App = () => {
+  
+  const [threads, setThreads] = useState([])
+  const addThread = (newThread) => {
+    setThreads([...threads, newThread]);
+  };
+
   return(
     <Router>
       <div>
@@ -13,8 +19,8 @@ const App = () => {
           <Link to="/threads/new">スレッドをたてる</Link> 
         </nav>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/threads/new' element={<CreateThreads />} />
+          <Route path='/' element={<Home threads={threads} />} />
+          <Route path='/threads/new' element={<CreateThreads addThread={addThread} />} />
         </Routes>
       </div>
     </Router>
