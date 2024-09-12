@@ -6,17 +6,18 @@ import { CreateThreads } from "./component/CreateThreads";
 
 const App = () => {
   return(
-    <div>
-      <Router>
+    <Router>
+      <div>
+        <header>掲示板</header>
         <nav>
-          <Link to="/threads/new">新着スレッド作成</Link>
+          <Link to="/threads/new">スレッドをたてる</Link> 
         </nav>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/threads/new' element={<CreateThreads />} />
-        </Routes>        
-      </Router>
-    </div>
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

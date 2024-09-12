@@ -14,7 +14,6 @@ export const Home = () => {
 
   return(
   <div>
-    <header>掲示板</header> 
     <ul>
       新着スレッド
       {threads.map((thread) => (
