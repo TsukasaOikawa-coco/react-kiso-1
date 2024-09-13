@@ -7,15 +7,14 @@ export const ThreadContents = () => {
   const { threadId } = useParams();
 
   useEffect(() => {
-    fetch('https://railway.bulletinboard.techtrain.dev/threads/${threadId}/')
+    fetch(`https://railway.bulletinboard.techtrain.dev/threads/${threadId}/`)
       .then(res => res.json())
       .then(data => 
         setContents(data))
   },[threadId])
 
-    
   const handleSubmit = async () => {
-    await fetch('https://railway.bulletinboard.techtrain.dev/threads/${threadId}/', {
+    await fetch(`https://railway.bulletinboard.techtrain.dev/threads/${threadId}/`, {
       method: 'POST',  //POST:APIへデータの送信、GET:APIからデータを取得
       headers: {'Content-Type': 'application/json'},  //リクエストボディがJSON形式であることを知らせる
       body: JSON.stringify({post:newPost}),  //{ title: 'ユーザーが入力したタイトル' }というオブジェクトをJSON文字列に変換し、その文字列をリクエストボディとして送信する。(inputのvalueと一致させる。)

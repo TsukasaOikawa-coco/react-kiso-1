@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Home = () => {
   const [threads, setThreads] = useState([]);
+  const { threadId } = useParams();
  
   useEffect(() => {
     fetch('https://railway.bulletinboard.techtrain.dev/threads')

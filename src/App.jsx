@@ -19,7 +19,7 @@ const App = () => {
         <Routes> 
           <Route path='/' element={<Home/>}></Route>
           <Route path='/threads/new' element={<CreateThreads/>}></Route>
-          <Route path='/threads/:thread_id' element={<ThreadContents/>}></Route>
+          <Route path='/threads/:threadId' element={<ThreadContents/>}></Route>
           {/*
           URLパスに応じてコンポーネントを表示する。path='/'のときHomeコンポーネントを表示する。
           */}
