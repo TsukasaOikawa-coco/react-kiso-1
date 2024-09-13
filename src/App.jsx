@@ -2,9 +2,10 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Home } from "./component/Home";
 import { CreateThreads } from "./component/CreateThreads";
+import { ThreadContents } from "./component/ThreadContents";
 
 const App = () => {
-  
+
   return(
     <Router>
       <div>
@@ -16,8 +17,9 @@ const App = () => {
           */}
         </nav>
         <Routes> 
-          <Route path='/' element={<Home/>} />
-          <Route path='/threads/new' element={<CreateThreads/>} />
+          <Route path='/' element={<Home/>}></Route>
+          <Route path='/threads/new' element={<CreateThreads/>}></Route>
+          <Route path='/threads/:thread_id' element={<ThreadContents/>}></Route>
           {/*
           URLパスに応じてコンポーネントを表示する。path='/'のときHomeコンポーネントを表示する。
           */}
